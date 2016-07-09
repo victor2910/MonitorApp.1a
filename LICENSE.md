@@ -1,5 +1,4 @@
 MonitorApp.1a, an app to monitor sensors.
-
 Copyright (C) 2016 Víctor Augusto Alegre Ibáñez
 
 This program is free software: you can redistribute it and/or modify
