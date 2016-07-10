@@ -23,7 +23,7 @@ class Database
     final private function __construct()
     {
         try {
-            // Crear nueva conexi�n PDO
+            // Crear nueva conexion PDO
             self::getDb();
         } catch (PDOException $e) {
             // Manejo de excepciones
@@ -53,7 +53,7 @@ class Database
     {
         if (self::$pdo == null) {
             self::$pdo = new PDO(
-                'mysql:host=' . HOSTNAME .',dbname=' . DATABASE , // Eliminar este elemento si se usa una instalacion por defecto
+                'mysql:host=' . HOSTNAME .';dbname=' . DATABASE ,
                 USERNAME,
                 PASSWORD,
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
@@ -67,7 +67,7 @@ class Database
     }
 
     /**
-     * Evita la clonaci�n del objeto
+     * Evita la clonacion del objeto
      */
     final protected function __clone()
     {
