@@ -8,21 +8,21 @@ require 'Mediciones.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    if (isset($_GET['idalumno'])) {
+    if (isset($_GET['idDispositivo'])) {
 
         // Obtener par�metro idalumno
-        $parametro = $_GET['idalumno'];
+        $parametro = $_GET['idDispositivo'];
 
         // Tratar retorno
-        $retorno = Alumnos::getById($parametro);
+        $retorno = Mediciones::getById($parametro);
 
 
         if ($retorno) {
 
-            $alumno["estado"] = 1;		// cambio "1" a 1 porque no coge bien la cadena.
-            $alumno["alumno"] = $retorno;
+            $medida["estado"] = 1;		// cambio "1" a 1 porque no coge bien la cadena.
+            $medida["medida"] = $retorno;
             // Enviar objeto json del alumno
-            print json_encode($alumno);
+            print json_encode($medida);
         } else {
             // Enviar respuesta de error general
             print json_encode(

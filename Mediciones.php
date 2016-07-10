@@ -22,10 +22,8 @@ class Alumnos
     public static function getById($idDispositivo)
     {
         // Consulta de la tabla Alumnos
-        $consulta = "SELECT idAlumno,
-                            nombre,
-                            direccion
-                             FROM Alumnos
+        $consulta = "SELECT fecha, temperatura, presion, humedad, radiacion
+                             FROM mediciones
                              WHERE id_dispositivo = ?";
 
         try {
@@ -53,72 +51,7 @@ class Alumnos
      * @param $direccion nueva direccion
 
      */
-    public static function update(
-        $idAlumno,
-        $nombre,
-        $direccion
-    )
-    {
-        // Creando consulta UPDATE
-        $consulta = "UPDATE Alumnos" .
-            " SET nombre=?, direccion=? " .
-            "WHERE idAlumno=?";
 
-        // Preparar la sentencia
-        $cmd = Database::getInstance()->getDb()->prepare($consulta);
-
-        // Relacionar y ejecutar la sentencia
-        $cmd->execute(array($nombre, $direccion, $idAlumno));
-
-        return $cmd;
-    }
-
-    /**
-     * Insertar un nuevo Alumno
-     *
-     * @param $nombre      nombre del nuevo registro
-     * @param $direccion direcci�n del nuevo registro
-     * @return PDOStatement
-     */
-    public static function insert(
-        $nombre,
-        $direccion
-    )
-    {
-        // Sentencia INSERT
-        $comando = "INSERT INTO Alumnos ( " .
-            "nombre," .
-            " direccion)" .
-            " VALUES( ?,?)";
-
-        // Preparar la sentencia
-        $sentencia = Database::getInstance()->getDb()->prepare($comando);
-
-        return $sentencia->execute(
-            array(
-                $nombre,
-                $direccion
-            )
-        );
-
-    }
-
-    /**
-     * Eliminar el registro con el identificador especificado
-     *
-     * @param $idAlumno identificador de la tabla Alumnos
-     * @return bool Respuesta de la eliminaci�n
-     */
-    public static function delete($idAlumno)
-    {
-        // Sentencia DELETE
-        $comando = "DELETE FROM Alumnos WHERE idAlumno=?";
-
-        // Preparar la sentencia
-        $sentencia = Database::getInstance()->getDb()->prepare($comando);
-
-        return $sentencia->execute(array($idAlumno));
-    }
 }
 
 ?>
