@@ -1,5 +1,5 @@
 <?php
-//function conectar(){
+function Conectar(){
   $conexion = null;
   $host = 'localhost';
   $db = 'sensores';
@@ -12,7 +12,7 @@
   catch (PDOException $e){
     echo '<p>No se piede conectar a la bd</p>';
   }
-  //return $conexion;
-//}
+  return $conexion;
+}
 
  ?>
