@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dash"
+            android:title="Inicio"
+            android:icon="@drawable/ic_home" />
+    </group>
+
+    <item android:title="Historial" >
+        <menu >
+            <item android:title="Concentración"
+                android:id="@+id/nav_conc"
+                android:icon="@drawable/ic_graf" />
+            <item android:title="Incidencias"
+                android:id="@+id/nav_inc"
+                android:icon="@drawable/ic_alert" />
+        </menu>
+    </item>
+    <item android:title="Más">
+        <menu>
+            <item
+                android:id="@+id/nav_conf"
+                android:title="Configuración"
+                android:icon="@drawable/ic_conf" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_info"
+                android:title="Acerca de" />
+        </menu>
+    </item>
+
+</menu>
